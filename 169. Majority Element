@@ -1,0 +1,37 @@
+/*
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+
+You may assume that the array is non-empty and the majority element always exist in the array.
+*/
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        map<int,int> value_count;
+        int n=nums.size();
+        int res=-1;
+        if(n==1)
+            res=nums[0];
+        for(int i=0;i<n;i++)
+        {
+            map<int,int>::iterator it=value_count.find(nums[i]);
+            if(it!=value_count.end())
+            {
+                value_count[nums[i]]++;
+                if(value_count[nums[i]]>n/2)
+                {
+                    cout<<3<<endl;
+                    res=nums[i];
+                    break;
+                }
+            }
+            else
+                value_count.insert(pair<int,int>(nums[i],1));
+        }
+        return res;
+    }
+};
+
+/*
+Hash Table
+*/
