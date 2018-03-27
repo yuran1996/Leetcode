@@ -20,7 +20,6 @@ public:
                 value_count[nums[i]]++;
                 if(value_count[nums[i]]>n/2)
                 {
-                    cout<<3<<endl;
                     res=nums[i];
                     break;
                 }
